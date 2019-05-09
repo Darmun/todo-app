@@ -9,6 +9,7 @@ import MenuButton from './MenuButton';
 const styles = {
   root: {
     flexGrow: 1,
+    textAlign: "center",
   },
  
 };
@@ -18,14 +19,14 @@ function SimpleAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="static" >
         <Toolbar>
           <Typography variant="h6" color="inherit" >
             TODO App
           </Typography>
-            <MenuButton onClick="doda" btnText="add"/>
-            <MenuButton onClick="usunie" btnText="Remove"/>
-            <MenuButton onClick="czysci" btnText="Clear"/>
+            <MenuButton onClick={props.addTask} btnText="add"/>
+            <MenuButton onClick={props.removeTask} btnText="Remove"/>
+            <MenuButton onClick={props.clearList} btnText="Clear"/>
         </Toolbar>
       </AppBar>
     </div>

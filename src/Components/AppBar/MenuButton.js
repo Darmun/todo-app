@@ -14,7 +14,13 @@ function MenuButton(props) {
   
     return (
       <div>
-            <Button color="inherit" className={classes.menuButton}>{btnText}</Button>
+            <Button color="inherit"
+             variant="outlined"
+              className={classes.menuButton}
+              onClick={props.onClick}>
+              {btnText}
+
+            </Button>
       </div>
     );
   }
