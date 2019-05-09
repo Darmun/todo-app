@@ -11,8 +11,8 @@ const styles = {
 function TaskList(props) {
     const { classes } = props;
     let tasks;
-    if(props.tasks){
-      tasks = props.tasks.map((taskItem,index) =>
+    if(props.tasksArr){
+      tasks = props.tasksArr.map((taskItem,index) =>
       <li key={index}>{taskItem}</li>)
     }
     return (

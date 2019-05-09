@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import AppBar from "./Components/AppBar";
-
+import TaskList from "./Components/TaskList/index";
 class App extends Component {
   state = {
     tasks: []
@@ -37,10 +37,11 @@ class App extends Component {
   };
 
   render() {
-    const { tasksArr } = this.state;
+    const { tasks} = this.state;
     return (
       <div className="App">
         <AppBar addTask={this.addTask} removeTask={this.removeTask} clearList={this.clearList} />
+        <TaskList tasksArr={tasks}/>
       </div>
     );
   }
