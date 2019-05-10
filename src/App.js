@@ -38,13 +38,14 @@ class App extends Component {
   };
 
   render() {
-    const { tasks} = this.state;
+    const { tasks } = this.state;
+    
     return (
       <div className="App">
         <AppBar 
-        addTask={this.handleAddTask} 
-        removeTask={this.handleRemoveTask} 
-        clearList={this.handleClearList} 
+          addTask={this.handleAddTask} 
+          removeTask={this.handleRemoveTask} 
+          clearList={this.handleClearList} 
         />
         <TaskList tasksArr={tasks} />
       </div>

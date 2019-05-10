@@ -18,8 +18,9 @@ function MenuButton(props) {
               color="inherit"
               variant="outlined"
               className={classes.menuButton}
-              onClick={props.onClick}>
-                {btnText}
+              onClick={props.onClick}
+            >
+              {btnText}
             </Button>
       </div>
     );
