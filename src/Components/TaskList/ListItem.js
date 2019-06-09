@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import Delete from "./delete.png"
 
 const styles = {
   listItem: {
@@ -14,7 +15,9 @@ function ListItem(props) {
 
   return (
   <li className={classes.listItem}>
+    <input type="checkbox" />
     {props.children}
+    <img src={Delete} alt="delete"/>
   </li>
   );
 }

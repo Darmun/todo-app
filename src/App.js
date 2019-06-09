@@ -8,7 +8,7 @@ class App extends Component {
   };
 
   handleAddTask = () => {
-    this.setState(function(prevState) {
+    this.setState((prevState) => {
       const index = prevState.tasks.length + 1;
       const taskString = "Task number " + index;
       return {
@@ -18,7 +18,7 @@ class App extends Component {
   };
 
   handleRemoveTask = () => {
-    this.setState(function(prevState) {
+    this.setState((prevState) => {
       if (prevState.tasks.length > 0) {
         prevState.tasks.length--;
         return {
@@ -29,7 +29,7 @@ class App extends Component {
   };
 
   handleClearList = () => {
-    this.setState(function(prevState) {
+    this.setState((prevState) => {
         prevState.tasks.length = 0;
         return {
           tasks: prevState.tasks
