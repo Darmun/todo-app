@@ -1,11 +1,11 @@
-import React from "react";
+import React,{Fragment} from "react";
 import "./checkBox.css"
 
 export default function CustomCheckbox ({onChange}){
     return(
-<label class="container">
+<label className="container">
   <input type="checkbox" onChange={onChange}/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
     )
 }

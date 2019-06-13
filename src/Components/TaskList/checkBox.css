@@ -10,6 +10,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    bottom:7px;
   }
   
   /* Hide the browser's default checkbox */
@@ -38,7 +39,7 @@
   
   /* When the checkbox is checked, add a blue background */
   .container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: rgba(73, 215, 125, 1);
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */
