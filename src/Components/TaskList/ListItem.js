@@ -9,7 +9,8 @@ const styles = {
     font: "200 20px Helvetica, Verdana, sans-serif",
     lineHeight: "1.8rem",
     display: "flex",
-    alignItems:"center"
+    alignItems:"center",
+    transition: "all 0.5s",
   },
   buttonSection:{
     marginLeft:"0.5em"
@@ -47,14 +48,14 @@ class ListItem extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, handleDelete } = this.props;
 
     return (
       <li className={`${classes.listItem} ${this.state.taskDone ? classes.done : ""}`}>
         <CheckBox onChange={this.toggleTaskStatus} />
         {this.props.children}
         <div className={classes.buttonSection}>
-        <button className={classes.deleteButton}>
+        <button className={classes.deleteButton} onClick={handleDelete}>
           <img src={Delete} alt="delete" className={classes.deleteIcon}/>
         </button>
         </div>

@@ -2,17 +2,18 @@ import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ListItem from "./ListItem";
 
-function TaskList(props) {
+function TaskList({tasksArr, handleDelete}) {
   let tasks;
-  if (props.tasksArr) {
-    tasks = props.tasksArr.map((taskItem, index) => (
+  if (tasksArr) {
+    tasks = tasksArr.map(({text, id}) => (
       <CSSTransition 
-        key={index} 
+        key={id} 
         timeout={500} 
         classNames="item"
+        handleDelete={() => handleDelete(id)}
       >
         <ListItem>
-          {taskItem}
+          {text}
         </ListItem>
       </CSSTransition>
     ));
