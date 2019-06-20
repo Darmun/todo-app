@@ -10,7 +10,7 @@ const styles = {
   };
 
 function MenuButton(props) {
-    const { classes, btnText } = props;
+    const { classes, children } = props;
   
     return (
       <div>
@@ -20,7 +20,7 @@ function MenuButton(props) {
               className={classes.menuButton}
               onClick={props.onClick}
             >
-              {btnText}
+              {children}
             </Button>
       </div>
     );

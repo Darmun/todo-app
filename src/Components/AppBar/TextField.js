@@ -7,7 +7,6 @@ const styles = {
     border: "none",
     padding: "0.7em",
     borderRadius: "5px",
-    marginLeft: "10px",
     boxShadow: "inset 0px 0px 10px #000000",
     transition: "box-shadow 0.5s ease-in",
     ':focus':{

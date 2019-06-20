@@ -6,6 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuButton from "./MenuButton";
 import TextField from "./TextField.js";
+import Filter from "./Filter.js";
 
 const styles = {
   root: {
@@ -23,7 +24,8 @@ function SimpleAppBar({ classes, addTask, clearList }) {
             TODO App
           </Typography> */}
           <TextField onChange={addTask} />
-          <MenuButton onClick={clearList} btnText="Clear" />
+          <MenuButton onClick={clearList}>Clear</MenuButton>
+          <Filter />
         </Toolbar>
       </AppBar>
     </div>

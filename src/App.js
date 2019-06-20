@@ -11,7 +11,6 @@ class App extends Component {
 
   handleAddTask = (taskText) => {
     this.setState(prevState => {
-      const index = prevState.tasks.length + 1;
       const newTask = {
         text: taskText,
         id: IdCounter
