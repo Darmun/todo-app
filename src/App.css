@@ -12,12 +12,13 @@
   z-index: -1;
   position:relative;
   bottom:0;
-  transform:perspective(500px) rotateX(0deg);
+  box-sizing: border-box;
+/*  transform:perspective(500px) rotateX(0deg); */
 }
 
 .item-exit-active {
-  bottom:40px;
+  bottom:60px;
   opacity: 0.01;
-  transform:perspective(500px) rotateX(-90deg);
-  transition: opacity 500ms ease-in;
+ /* transform:perspective(500px) rotateX(-90deg); */
+  transition: all 500ms ease-in;
 }

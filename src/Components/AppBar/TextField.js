@@ -1,9 +1,18 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import Radium from "radium";
 
 const styles = {
-  menuButton: {
-    marginLeft: 10
+
+  textField:{
+    border: "none",
+    padding: "0.7em",
+    borderRadius: "5px",
+    marginLeft: "10px",
+    boxShadow: "inset 0px 0px 10px #000000",
+    transition: "box-shadow 0.5s ease-in",
+    ':focus':{
+      boxShadow: "inset 0px 0px 0px #000000",
+    }
   }
 };
 
@@ -17,19 +26,34 @@ class TextField extends React.Component {
       fieldValue: value
     });
   };
+
+  handleKeyPress = (e) => {
+    const {fieldValue} = this.state;
+    // only if enter is pressed
+    if(e.which === 13 && fieldValue){
+    this.props.onChange(fieldValue);
+    this.setState({
+      fieldValue:""
+    });
+    };
+  }
   
   render() {
     return (
-      <form>
+      <div>
         <input
           type="text"
           placeholder="type task and hit enter"
+          style={styles.textField}
           value={this.state.fieldValue}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
-      </form>
+      </div>
     );
   }
 }
 
-export default withStyles(styles)(TextField);
+const StyledComponent = Radium(TextField);
+
+export default StyledComponent;

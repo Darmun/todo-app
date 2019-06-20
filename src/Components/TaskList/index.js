@@ -2,6 +2,11 @@ import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ListItem from "./ListItem";
 
+const unorderedListStyle = {
+  paddingInlineStart: 0,
+  marginBlockStart: 0,
+}
+
 function TaskList({tasksArr, handleDelete}) {
   let tasks;
   if (tasksArr) {
@@ -20,7 +25,7 @@ function TaskList({tasksArr, handleDelete}) {
   }; 
   
   return (
-    <ul>
+    <ul style={unorderedListStyle}>
       <TransitionGroup>
         {tasks}
       </TransitionGroup>

@@ -1,32 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import MenuButton from './MenuButton';
-import TextField from './TextField.js'
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import MenuButton from "./MenuButton";
+import TextField from "./TextField.js";
 
 const styles = {
   root: {
     flexGrow: 1,
-    textAlign: "center",
-  },
- 
+    textAlign: "center"
+  }
 };
 
-function SimpleAppBar({classes, addTask, clearList}) {
-
+function SimpleAppBar({ classes, addTask, clearList }) {
   return (
     <div className={classes.root}>
-      <AppBar position="static" >
+      <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" color="inherit" >
+          {/* <Typography variant="h6" color="inherit" >
             TODO App
-          </Typography>
-            <MenuButton onClick={addTask} btnText="add"/>
-            <MenuButton onClick={clearList} btnText="Clear"/>
-            <TextField />
+          </Typography> */}
+          <TextField onChange={addTask} />
+          <MenuButton onClick={clearList} btnText="Clear" />
         </Toolbar>
       </AppBar>
     </div>
@@ -34,7 +31,7 @@ function SimpleAppBar({classes, addTask, clearList}) {
 }
 
 SimpleAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(SimpleAppBar);

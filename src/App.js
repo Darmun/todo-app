@@ -9,11 +9,11 @@ class App extends Component {
     tasks: []
   };
 
-  handleAddTask = () => {
+  handleAddTask = (taskText) => {
     this.setState(prevState => {
       const index = prevState.tasks.length + 1;
       const newTask = {
-        text: "Task number " + index,
+        text: taskText,
         id: IdCounter
       };
       IdCounter++;
