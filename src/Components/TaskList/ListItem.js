@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import Delete from "./delete.png";
 import CheckBox from "./Checkbox.js";
+import DeleteButton from "./DeleteButton.js";
 
 const styles = {
   listItem: {
@@ -11,36 +11,23 @@ const styles = {
     display: "flex",
     alignItems: "center",
     transition: "all 500ms",
-    padding: "0.5em",
-  },
-  buttonSection: {
-    position:"absolute",
-    right:"5px",
-    marginLeft: "0.5em"
-  },
-  deleteButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center"
-  },
-  deleteIcon: {
-    width: 24,
-    height: 24
+    padding: "0.5em"
   },
   done: {
     backgroundColor: "rgb(147, 255, 178, 0.3)",
     color: "rgba(73, 215, 125, 1)"
   },
-  taskCheckBox: {
-    marginRight: "1em"
-  },
   taskText: {
     overflowWrap: "break-word",
     wordWrap: "break-word",
     hyphens: "auto",
-    width:"70%"
+    width: "70%"
+  },
+  visible: {
+    display: "flex"
+  },
+  hidden: {
+    display: "none"
   }
 };
 
@@ -49,6 +36,23 @@ class ListItem extends Component {
     taskDone: false
   };
 
+  componentDidMount() {
+    const savedState = JSON.parse(
+      localStorage.getItem(this.props.id.toString())
+    );
+ 
+    if (savedState) {
+      this.setState({
+        taskDone: savedState
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    const taskDone = this.state.taskDone.toString();
+    localStorage.setItem(this.props.id.toString(), taskDone);
+  }
+
   toggleTaskStatus = ({ target: { checked } }) => {
     this.setState({
       taskDone: checked
@@ -56,21 +60,35 @@ class ListItem extends Component {
   };
 
   render() {
-    const { classes, handleDelete } = this.props;
+    const { classes, handleDelete, filterSetting } = this.props;
+    let convertedSetting;
+    switch (filterSetting) {
+      case "checked":
+        convertedSetting = true;
+        break;
+      case "unchecked":
+        convertedSetting = false;
+        break;
+      default:
+        convertedSetting = true;
+    }
+    const visibility =
+      filterSetting === "all" || convertedSetting === this.state.taskDone
+        ? classes.visible
+        : classes.hidden;
 
     return (
       <li
-        className={`${classes.listItem} ${
+        className={`${classes.listItem} ${visibility} ${
           this.state.taskDone ? classes.done : ""
         }`}
       >
-        <CheckBox onChange={this.toggleTaskStatus} />
+        <CheckBox
+          onChange={this.toggleTaskStatus}
+          checked={this.state.taskDone}
+        />
         <div className={classes.taskText}>{this.props.children}</div>
-        <div className={classes.buttonSection}>
-          <button className={classes.deleteButton} onClick={handleDelete}>
-            <img src={Delete} alt="delete" className={classes.deleteIcon} />
-          </button>
-        </div>
+        <DeleteButton handleDelete={handleDelete} />
       </li>
     );
   }

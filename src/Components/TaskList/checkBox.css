@@ -31,6 +31,10 @@
     width: 25px;
     background-color: #eee;
   }
+
+  .taskCheckBox{
+    margin-right: 1em;
+  }
   
   /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {

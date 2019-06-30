@@ -3,13 +3,26 @@ import "./App.css";
 import AppBar from "./Components/AppBar";
 import TaskList from "./Components/TaskList/index";
 
-let IdCounter = 0;
+let IdCounter = localStorage.getItem("Id") || 0;
 class App extends Component {
   state = {
-    tasks: []
+    tasks: [] ,
+    filterSetting: "all"
   };
 
-  handleAddTask = (taskText) => {
+  componentDidMount() {
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks) {
+      this.setState({tasks: JSON.parse(savedTasks)});
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+    localStorage.setItem("Id", IdCounter);
+  }
+
+  handleAddTask = taskText => {
     this.setState(prevState => {
       const newTask = {
         text: taskText,
@@ -51,7 +64,7 @@ class App extends Component {
   };
 
   render() {
-    const { tasks } = this.state;
+    const { tasks, filterSetting } = this.state;
 
     return (
       <div className="App">
@@ -60,7 +73,10 @@ class App extends Component {
           removeTask={this.handleRemoveTask}
           clearList={this.handleClearList}
         />
-        <TaskList tasksArr={tasks} handleDelete={this.handleDeleteTask} />
+        <TaskList 
+        tasksArr={tasks} 
+        filterSetting={filterSetting}
+        handleDelete={this.handleDeleteTask} />
       </div>
     );
   }

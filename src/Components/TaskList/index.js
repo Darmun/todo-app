@@ -7,17 +7,19 @@ const unorderedListStyle = {
   marginBlockStart: 0,
 }
 
-function TaskList({tasksArr, handleDelete}) {
+function TaskList({tasksArr, handleDelete, filterSetting}) {
   let tasks;
   if (tasksArr) {
     tasks = tasksArr.map(({text, id}) => (
       <CSSTransition 
         key={id} 
         timeout={500} 
-        classNames="item"
-        handleDelete={() => handleDelete(id)}
+        classNames="item"     
       >
-        <ListItem>
+        <ListItem  
+        handleDelete={() => handleDelete(id)}
+        id={id}
+        filterSetting={filterSetting}>
           {text}
         </ListItem>
       </CSSTransition>
