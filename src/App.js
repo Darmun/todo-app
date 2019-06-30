@@ -35,6 +35,12 @@ class App extends Component {
     });
   };
 
+  handleFilterSetting = (option) => {
+    this.setState({
+      filterSetting: option
+    })
+  }
+
   handleRemoveTask = () => {
     this.setState(prevState => {
       if (prevState.tasks.length > 0) {
@@ -72,6 +78,7 @@ class App extends Component {
           addTask={this.handleAddTask}
           removeTask={this.handleRemoveTask}
           clearList={this.handleClearList}
+          manageFilter={this.handleFilterSetting}
         />
         <TaskList 
         tasksArr={tasks} 

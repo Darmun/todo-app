@@ -14,7 +14,7 @@ const styles = {
   }
 };
 
-function SimpleAppBar({ classes, addTask, clearList }) {
+function SimpleAppBar({ classes, addTask, clearList, manageFilter }) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -24,7 +24,7 @@ function SimpleAppBar({ classes, addTask, clearList }) {
           </Typography> */}
           <TextField onChange={addTask} />
           <MenuButton onClick={clearList}>Clear</MenuButton>
-          <Filter />
+          <Filter onOptionSelect={manageFilter}/>
         </Toolbar>
       </AppBar>
     </div>
