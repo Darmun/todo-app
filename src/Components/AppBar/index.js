@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import MenuButton from "./MenuButton";
+import ClearButton from "./ClearButton";
 import TextField from "./TextField.js";
 import Filter from "./Filter.js";
+
 
 const styles = {
   root: {
@@ -23,7 +24,7 @@ function SimpleAppBar({ classes, addTask, clearList, manageFilter }) {
             TODO App
           </Typography> */}
           <TextField onChange={addTask} />
-          <MenuButton onClick={clearList}>Clear</MenuButton>
+          <ClearButton onClick={clearList}>Clear</ClearButton>
           <Filter onOptionSelect={manageFilter}/>
         </Toolbar>
       </AppBar>

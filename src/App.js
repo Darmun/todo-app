@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import AppBar from "./Components/AppBar";
 import TaskList from "./Components/TaskList/index";
+import Radium, {StyleRoot} from 'radium';
 
 let IdCounter = localStorage.getItem("Id") || 0;
 class App extends Component {
@@ -73,6 +74,7 @@ class App extends Component {
     const { tasks, filterSetting } = this.state;
 
     return (
+      <StyleRoot>
       <div className="App">
         <AppBar
           addTask={this.handleAddTask}
@@ -85,8 +87,9 @@ class App extends Component {
         filterSetting={filterSetting}
         handleDelete={this.handleDeleteTask} />
       </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);

@@ -16,7 +16,8 @@ const styles = () => ({
     top: 36,
     right: 0,
     left: 0,
-    color: "black"
+    color: "black",
+    zIndex:'100'
   },
   option:{
     fontFamily:"inherit",

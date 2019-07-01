@@ -9,6 +9,7 @@ const styles = {
     font: "200 20px Helvetica, Verdana, sans-serif",
     lineHeight: "1.8rem",
     display: "flex",
+    position: "relative",
     alignItems: "center",
     transition: "all 500ms",
     padding: "0.5em"

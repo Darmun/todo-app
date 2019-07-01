@@ -1,8 +1,7 @@
-import React from "react";
-import Radium from "radium";
+import React from 'react';
+import Radium, {StyleRoot} from 'radium';
 
 const styles = {
-
   textField:{
     border: "none",
     padding: "0.7em",
@@ -11,7 +10,7 @@ const styles = {
     transition: "box-shadow 0.5s ease-in",
     ':focus':{
       boxShadow: "inset 0px 0px 0px #000000",
-    }
+    },
   }
 };
 
@@ -39,6 +38,7 @@ class TextField extends React.Component {
   
   render() {
     return (
+      <StyleRoot>
       <div>
         <input
           type="text"
@@ -49,6 +49,7 @@ class TextField extends React.Component {
           onKeyPress={this.handleKeyPress}
         />
       </div>
+      </StyleRoot>
     );
   }
 }
