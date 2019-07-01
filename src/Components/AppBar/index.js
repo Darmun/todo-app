@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import MenuButton from "./MenuButton";
+import ClearButton from "./ClearButton";
 import TextField from "./TextField.js";
 import Filter from "./Filter.js";
 
@@ -19,12 +19,9 @@ function SimpleAppBar({ classes, addTask, clearList, manageFilter }) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {/* <Typography variant="h6" color="inherit" >
-            TODO App
-          </Typography> */}
           <TextField onChange={addTask} />
-          <MenuButton onClick={clearList}>Clear</MenuButton>
-          <Filter onOptionSelect={manageFilter}/>
+          <ClearButton onClick={clearList}>Clear</ClearButton>
+          <Filter onOptionSelect={manageFilter} />
         </Toolbar>
       </AppBar>
     </div>

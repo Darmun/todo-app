@@ -1,12 +1,15 @@
 import Button from "@material-ui/core/Button";
 import React from "react";
 import Radium from "radium";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
   menuButton: {
     marginLeft: 10
+  },
+  container: {
+    "@media screen and (max-width: 400px)": {
+      display: "none"
+    }
   }
 };
 

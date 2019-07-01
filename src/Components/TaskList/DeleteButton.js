@@ -4,23 +4,23 @@ import PropTypes from "prop-types";
 import Delete from "./delete.png";
 
 const styles = {
-    buttonSection: {
-      position: "absolute",
-      right: "5px",
-      marginLeft: "0.5em"
-    },
-    deleteButton: {
-      border: "none",
-      backgroundColor: "transparent",
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center"
-    },
-    deleteIcon: {
-      width: 24,
-      height: 24
-    },
-  };
+  buttonSection: {
+    position: "absolute",
+    right: "5px",
+    marginLeft: "0.5em"
+  },
+  deleteButton: {
+    border: "none",
+    backgroundColor: "transparent",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center"
+  },
+  deleteIcon: {
+    width: 24,
+    height: 24
+  }
+};
 
 function DeleteButton({ classes, handleDelete }) {
   return (
@@ -37,4 +37,3 @@ DeleteButton.propTypes = {
 };
 
 export default withStyles(styles)(DeleteButton);
-
